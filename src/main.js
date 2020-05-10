@@ -12,6 +12,7 @@ let env;
 function setup() {
     //RECTANGLES NOW DEFINED BY THIER CENTER POINT.
     rectMode(CENTER);
+    angleMode(RADIANS);
     createCanvas(WIDTH, HEIGHT);
     env = new Environment(0, 0, WIDTH, HEIGHT);
 }
