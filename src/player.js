@@ -6,6 +6,8 @@ class Player {
 
         this.width = width;
         this.height = height;
+
+        this.alive = true;
     }
 
     draw() {

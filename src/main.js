@@ -25,6 +25,7 @@ function setup() {
     env2 = new Environment(WIDTH / 2, 0, WIDTH / 2, HEIGHT / 2);
     env3 = new Environment(WIDTH / 2, HEIGHT / 2, WIDTH / 2, HEIGHT / 2);
     env4 = new Environment(0, WIDTH / 2, WIDTH / 2, HEIGHT / 2);
+    env4.player.alive = false;
 }
 
 function draw() {

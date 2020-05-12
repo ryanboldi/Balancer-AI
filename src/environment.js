@@ -15,6 +15,15 @@ class Environment {
     }
 
     draw() {
+        if (!this.player.alive) {
+            fill(255, 0, 0, 15);
+            noStroke();
+            rect(this.x + (this.w / 2), this.y + (this.h / 2), this.w, this.h);
+            stroke(255, 0, 0);
+            strokeWeight(2);
+            line(this.x, this.y, this.x + this.w, this.y + this.h);
+            line(this.x, this.y + this.h, this.x + this.w, this.y);
+        }
         this.ball.draw();
         this.player.draw();
         // push(); //push saves current p5 settings so we can revert to them later
