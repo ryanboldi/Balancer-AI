@@ -9,7 +9,7 @@ class Environment {
         this.engine = Engine.create();
 
         this.ball = new Ball(400, 100, 30, this.engine);
-        this.player = new Player(400, 600, 100, 10, this.engine);
+        this.player = new Player(400, 600, 50, 100, this.engine);
 
         Engine.run(this.engine);
     }

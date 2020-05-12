@@ -1,10 +1,13 @@
 const WIDTH = 800;
 const HEIGHT = 800;
 
+const PlayerSpeed = 1;
+
 //bunch of module aliases
 let Engine = Matter.Engine,
     Render = Matter.Render,
     World = Matter.World,
+    Body = Matter.Body,
     Bodies = Matter.Bodies;
 
 let env;
