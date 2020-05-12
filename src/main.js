@@ -2,7 +2,7 @@ const WIDTH = 800;
 const HEIGHT = 800;
 
 const PlayerSpeed = 5;
-const PlayerWidth = 0.8; //out of 1, how much of width of the env is taken up by the player 
+const PlayerWidth = 0.2; //out of 1, how much of width of the env is taken up by the player 
 
 //bunch of module aliases
 let Engine = Matter.Engine,
