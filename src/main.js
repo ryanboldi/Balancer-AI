@@ -28,7 +28,8 @@ let ballSettings = {
     restitution: 1,
     friction: 0,
     frictionAir: 0,
-    frictionStatic: 0
+    frictionStatic: 0,
+    slop: 0
 }
 
 let playerSettings = {
@@ -36,5 +37,6 @@ let playerSettings = {
     restitution: 1,
     friction: 0,
     frictionAir: 0,
-    frictionStatic: 0
+    frictionStatic: 0,
+    slop: 0
 }
