@@ -21,14 +21,20 @@ function setup() {
 function draw() {
     background(190);
     env.draw();
-
 }
 
 let ballSettings = {
     denisty: 0.1,
-    restitution: 1
+    restitution: 1,
+    friction: 0,
+    frictionAir: 0,
+    frictionStatic: 0
 }
 
 let playerSettings = {
-    isStatic: true
+    isStatic: true,
+    restitution: 1,
+    friction: 0,
+    frictionAir: 0,
+    frictionStatic: 0
 }
