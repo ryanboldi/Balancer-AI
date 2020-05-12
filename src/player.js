@@ -22,26 +22,26 @@ class Player {
         //TEMPORARY CONTROLS
         //q -> 81, e -> 69
         if (this.alive) {
+            // if (keyIsDown(UP_ARROW)) {
+            //     Body.translate(this.body, { x: 0, y: -PlayerSpeed });
+            //     //move up
+            // }
+            // if (keyIsDown(DOWN_ARROW)) {
+            //     Body.translate(this.body, { x: 0, y: PlayerSpeed });
+            //     //move down
+            // }
             if (keyIsDown(UP_ARROW)) {
-                Body.translate(this.body, { x: 0, y: -PlayerSpeed });
-                //move up
+                Body.translate(this.body, { x: -PlayerSpeed, y: 0 });
+                //move left
             }
             if (keyIsDown(DOWN_ARROW)) {
-                Body.translate(this.body, { x: 0, y: PlayerSpeed });
-                //move down
-            }
-            // if (keyIsDown(LEFT_ARROW)) {
-            //     Body.translate(this.body, { x: -PlayerSpeed, y: 0 });
-            //     //move left
-            // }
-            // if (keyIsDown(RIGHT_ARROW)) {
-            //     Body.translate(this.body, { x: PlayerSpeed, y: 0 });
-            //     //move right
-            // }
-            if (keyIsDown(LEFT_ARROW)) {
-                Body.rotate(this.body, (Math.PI / (432)) * PlayerSpeed);
+                Body.translate(this.body, { x: PlayerSpeed, y: 0 });
+                //move right
             }
             if (keyIsDown(RIGHT_ARROW)) {
+                Body.rotate(this.body, (Math.PI / (432)) * PlayerSpeed);
+            }
+            if (keyIsDown(LEFT_ARROW)) {
                 Body.rotate(this.body, -(Math.PI / 432) * PlayerSpeed);
             }
         }
