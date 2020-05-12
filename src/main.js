@@ -12,6 +12,8 @@ let Engine = Matter.Engine,
 
 let env;
 let env2;
+let env3;
+let env4;
 
 function setup() {
     frameRate(120);
@@ -21,12 +23,16 @@ function setup() {
     createCanvas(WIDTH, HEIGHT);
     env = new Environment(0, 0, WIDTH / 2, HEIGHT / 2);
     env2 = new Environment(WIDTH / 2, 0, WIDTH / 2, HEIGHT / 2);
+    env3 = new Environment(WIDTH / 2, HEIGHT / 2, WIDTH / 2, HEIGHT / 2);
+    env4 = new Environment(0, WIDTH / 2, WIDTH / 2, HEIGHT / 2);
 }
 
 function draw() {
     background(190);
     env.draw();
     env2.draw();
+    env3.draw();
+    env4.draw();
 }
 
 let ballSettings = {
