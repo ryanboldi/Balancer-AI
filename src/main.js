@@ -1,7 +1,7 @@
 const WIDTH = 800;
 const HEIGHT = 800;
 
-const PlayerSpeed = 10;
+const PlayerSpeed = 5;
 
 //bunch of module aliases
 let Engine = Matter.Engine,
@@ -11,6 +11,7 @@ let Engine = Matter.Engine,
     Bodies = Matter.Bodies;
 
 let env;
+let env2;
 
 function setup() {
     frameRate(120);
@@ -18,12 +19,14 @@ function setup() {
     rectMode(CENTER)
     angleMode(RADIANS);
     createCanvas(WIDTH, HEIGHT);
-    env = new Environment(0, 0, WIDTH, HEIGHT);
+    env = new Environment(0, 0, WIDTH / 2, HEIGHT / 2);
+    env2 = new Environment(WIDTH / 2, 0, WIDTH / 2, HEIGHT / 2);
 }
 
 function draw() {
     background(190);
     env.draw();
+    env2.draw();
 }
 
 let ballSettings = {
