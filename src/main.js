@@ -1,7 +1,7 @@
 const WIDTH = 800;
 const HEIGHT = 800;
 
-const PlayerSpeed = 1;
+const PlayerSpeed = 10;
 
 //bunch of module aliases
 let Engine = Matter.Engine,
