@@ -10,8 +10,9 @@ let Engine = Matter.Engine,
 let env;
 
 function setup() {
+    frameRate(120);
     //RECTANGLES NOW DEFINED BY THIER CENTER POINT.
-    rectMode(CENTER);
+    rectMode(CENTER)
     angleMode(RADIANS);
     createCanvas(WIDTH, HEIGHT);
     env = new Environment(0, 0, WIDTH, HEIGHT);
@@ -21,4 +22,13 @@ function draw() {
     background(190);
     env.draw();
 
+}
+
+let ballSettings = {
+    denisty: 0.1,
+    restitution: 1
+}
+
+let playerSettings = {
+    isStatic: true
 }
