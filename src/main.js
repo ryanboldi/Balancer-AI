@@ -1,8 +1,12 @@
-const WIDTH = 800;
+const WIDTH = 800;//SQUARE
 const HEIGHT = 800;
 
 const PlayerSpeed = 5;
 const PlayerWidth = 0.2; //out of 1, how much of width of the env is taken up by the player 
+
+const winWallWidth = 4;
+
+const popsize = 64; //root of this needs to be something that WIDTH or HEIGHT is divisble by
 
 //bunch of module aliases
 let Engine = Matter.Engine,
@@ -11,10 +15,8 @@ let Engine = Matter.Engine,
     Body = Matter.Body,
     Bodies = Matter.Bodies;
 
-let env;
-let env2;
-let env3;
-let env4;
+let envs = [];
+
 
 function setup() {
     frameRate(120);
@@ -22,19 +24,28 @@ function setup() {
     rectMode(CENTER)
     angleMode(RADIANS);
     createCanvas(WIDTH, HEIGHT);
-    env = new Environment(0, 0, WIDTH / 2, HEIGHT / 2);
-    env2 = new Environment(WIDTH / 2, 0, WIDTH / 2, HEIGHT / 2);
-    env3 = new Environment(WIDTH / 2, HEIGHT / 2, WIDTH / 2, HEIGHT / 2);
-    env4 = new Environment(0, WIDTH / 2, WIDTH / 2, HEIGHT / 2);
-    env4.player.alive = false;
+
+    let x = 0;
+    let y = 0;
+    let perRow = Math.sqrt(popsize);
+    let spacing = (WIDTH / perRow);
+    for (let i = 0; i < popsize; i++) {
+        envs.push(new Environment(x, y, spacing, spacing));
+        x += spacing;
+        if (x == WIDTH) {
+            x = 0;
+            y += spacing;
+        }
+    }
+
+    console.log(envs);
 }
 
 function draw() {
     background(190);
-    env.draw();
-    env2.draw();
-    env3.draw();
-    env4.draw();
+    for (let i = 0; i < envs.length; i++) {
+        envs[i].draw();
+    }
 }
 
 let ballSettings = {
