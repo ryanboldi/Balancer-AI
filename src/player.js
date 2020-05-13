@@ -19,6 +19,11 @@ class Player {
         rect(0, 0, this.width, this.height);
         pop();
 
+        
+    }
+
+    think(){
+        //detect, and then move
         //TEMPORARY CONTROLS
         //q -> 81, e -> 69
         if (this.alive) {

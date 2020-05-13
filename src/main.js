@@ -44,6 +44,7 @@ function setup() {
 function draw() {
     background(190);
     for (let i = 0; i < envs.length; i++) {
+        envs[i].update();
         envs[i].draw();
         envs[i].checkDeath();
     }

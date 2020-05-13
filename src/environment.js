@@ -43,8 +43,10 @@ class Environment {
         }
         this.ball.draw();
         this.player.draw();
+    }
 
-
+    update() {
+        this.player.think();
     }
 
     checkDeath() {
