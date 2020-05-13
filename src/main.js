@@ -2,7 +2,7 @@ const WIDTH = 800;//SQUARE
 const HEIGHT = 800;
 
 const PlayerSpeed = 5;
-const PlayerWidth = 0.2; //out of 1, how much of width of the env is taken up by the player 
+const PlayerWidth = 0.3; //out of 1, how much of width of the env is taken up by the player 
 
 const winWallWidth = 4;
 
@@ -45,6 +45,7 @@ function draw() {
     background(190);
     for (let i = 0; i < envs.length; i++) {
         envs[i].draw();
+        envs[i].checkDeath();
     }
 }
 

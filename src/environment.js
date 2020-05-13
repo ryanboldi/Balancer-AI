@@ -46,4 +46,10 @@ class Environment {
 
 
     }
+
+    checkDeath() {
+        if (this.player.body.bounds.min.x < this.x) { this.player.alive = false }
+        if (this.player.body.bounds.max.x > this.x + this.w) { this.player.alive = false }
+        if (this.ball.body.position.y > this.y + this.h) { this.player.alive = false }
+    }
 }
