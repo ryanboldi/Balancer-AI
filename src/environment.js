@@ -40,8 +40,9 @@ class Environment {
             strokeWeight(0.5);
             stroke(0, 0, 0);
             rect(this.x + (this.w / 2), this.y + (this.h / 2), this.w, this.h);
+            this.ball.draw();
         }
-        this.ball.draw();
+        
         this.player.draw();
     }
 
@@ -50,8 +51,8 @@ class Environment {
     }
 
     checkDeath() {
-        // if (this.player.body.bounds.min.x < this.x) { this.player.alive = false }
-        // if (this.player.body.bounds.max.x > this.x + this.w) { this.player.alive = false }
-        // if (this.ball.body.position.y > this.y + this.h) { this.player.alive = false }
+        if (this.player.body.bounds.min.x < this.x) { this.player.alive = false }
+        if (this.player.body.bounds.max.x > this.x + this.w) { this.player.alive = false }
+        if (this.ball.body.position.y > this.y + this.h) { this.player.alive = false }
     }
 }
