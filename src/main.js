@@ -19,26 +19,14 @@ let envs = [];
 
 
 function setup() {
-    frameRate(120);
+    frameRate(35);
     //RECTANGLES NOW DEFINED BY THIER CENTER POINT.
     rectMode(CENTER)
     angleMode(RADIANS);
     createCanvas(WIDTH, HEIGHT);
 
-    let x = 0;
-    let y = 0;
-    let perRow = Math.sqrt(popsize);
-    let spacing = (WIDTH / perRow);
-    for (let i = 0; i < popsize; i++) {
-        envs.push(new Environment(x, y, spacing, spacing));
-        x += spacing;
-        if (x == WIDTH) {
-            x = 0;
-            y += spacing;
-        }
-    }
-
-    console.log(envs);
+    initNeat();
+    startEvaluation();
 }
 
 function draw() {
@@ -48,6 +36,12 @@ function draw() {
         envs[i].draw();
         envs[i].checkDeath();
     }
+
+    alldead = true;
+    envs.forEach(env => {
+        if (env.player.alive == true) alldead = false;
+    });
+    if (alldead) endEvaluation();
 }
 
 let ballSettings = {
