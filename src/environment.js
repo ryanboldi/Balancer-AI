@@ -10,7 +10,7 @@ class Environment {
         this.engine = Engine.create();
 
         this.ball = new Ball(this.x + (this.w / 2), this.y + (this.h * 0.1), this.w / 32, this.engine);
-        this.player = new Player(this.x + (this.w / 1.2), this.y + (this.h * 0.75), this.w * PlayerWidth, this.h / 20, this.engine);
+        this.player = new Player(this.x + (this.w / 1.2), this.y + (this.h * 0.75), this.w * PlayerWidth, this.h / 20, this.engine, genome);
 
         Engine.run(this.engine);
 

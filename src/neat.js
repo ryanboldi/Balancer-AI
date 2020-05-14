@@ -11,7 +11,7 @@ Config.warnings = false;
 var ITERATIONS = 1200; //how many frames per generation maximum
 var MUTATION_RATE = 0.5;
 var ELITISM = Math.round(0.1 * popsize);
-var START_HIDDEN_SIZE = 6;
+var START_HIDDEN_SIZE = 10;
 
 /** Global Variables */
 var neat;
@@ -19,7 +19,7 @@ var neat;
 /*construct GA*/
 function initNeat() {
     neat = new Neat(
-        6, 2,
+        6, 4,
         null,
         {
             mutation: [
@@ -40,7 +40,7 @@ function initNeat() {
             popsize: popsize,
             mutationRate: MUTATION_RATE,
             elitism: ELITISM,
-            network: new Architect.Random(6, START_HIDDEN_SIZE, 2)
+            network: new Architect.Random(6, START_HIDDEN_SIZE, 4)
         }
 
     );

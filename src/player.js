@@ -1,6 +1,6 @@
 //THIS CLASS will control the local settings of each individual player.
 class Player {
-    constructor(x, y, width, height, engine) {
+    constructor(x, y, width, height, engine, genome) {
         this.body = Bodies.rectangle(x, y, width, height, playerSettings);
         World.add(engine.world, [this.body]);
 
@@ -8,6 +8,8 @@ class Player {
         this.height = height;
 
         this.alive = true;
+        this.brain = genome;
+        this.fitness = 0;
     }
 
     draw() {
@@ -61,21 +63,26 @@ class Player {
             //INPUT 5 ->  velocity of ball y
             let I5 = (env.ball.body.velocity.y);
             let input5 = map(I5, 0, 10, -1, 1);
-            console.log(input5);
 
+            let ballVec = createVector(env.ball.body.position.x - this.body.position.x, env.ball.body.position.y - this.body.position.y);
+            let I6 = (bodyVec.angleBetween(ballVec));
+            let input6 = map(I6, 0, Math.PI, -1, 1);
 
-            if (keyIsDown(UP_ARROW)) {
+            let inputs = [input1, input2, input3, input4, input5, input6];
+            let outputs = this.brain.activate(inputs);
+
+            if (outputs[0] > 0.5) {
                 Body.translate(this.body, { x: -PlayerSpeed, y: 0 });
                 //move left
             }
-            if (keyIsDown(DOWN_ARROW)) {
+            if (outputs[1] > 0.5) {
                 Body.translate(this.body, { x: PlayerSpeed, y: 0 });
                 //move right
             }
-            if (keyIsDown(RIGHT_ARROW)) {
+            if (outputs[2] > 0.5) {
                 Body.rotate(this.body, (Math.PI / (432)) * PlayerSpeed);
             }
-            if (keyIsDown(LEFT_ARROW)) {
+            if (outputs[3] > 0.5) {
                 Body.rotate(this.body, -(Math.PI / 432) * PlayerSpeed);
             }
         }
