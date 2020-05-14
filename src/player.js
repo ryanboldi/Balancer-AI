@@ -68,6 +68,8 @@ class Player {
             let I6 = (bodyVec.angleBetween(ballVec));
             let input6 = map(I6, 0, Math.PI, -1, 1);
 
+            //ADD 7th INPUT, which is which wall is the winning wall.
+
             let inputs = [input1, input2, input3, input4, input5, input6];
             let outputs = this.brain.activate(inputs);
 
