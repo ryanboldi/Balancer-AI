@@ -10,7 +10,7 @@ Config.warnings = false;
 
 var ITERATIONS = 1200; //how many frames per generation maximum
 var MUTATION_RATE = 0.5;
-var ELITISM = Math.round(0.1 * PLAYERS);
+var ELITISM = Math.round(0.1 * popsize);
 var START_HIDDEN_SIZE = 6;
 
 /** Global Variables */
@@ -48,18 +48,28 @@ function initNeat() {
 
 function startEvaluation() {
     envs = [];  //resets ball array.
-    for (var genome in neat.population) {
+    let x = 0;
+    let y = 0;
+    let perRow = Math.sqrt(popsize);
+    let spacing = (WIDTH / perRow);
+    for (let genome in neat.population) {
         genome = neat.population[genome];
-        new Ball(genome);
+        envs.push(new Environment(x, y, spacing, spacing, genome));
+        x += spacing;
+        if (x == WIDTH) {
+            x = 0;
+            y += spacing;
+        }
     }
+
+    //console.log(envs); 
     neat.mutate();
 }
 
 
 function endEvaluation() {
-    walls[0].y = 0;
-    console.log('Generation: ', neat.generation, ' - average score: ', neat.getAverage());
-    console.log('Generation highest score', neat.getFittest().score);
+    //console.log('Generation: ', neat.generation, ' - average score: ', neat.getAverage());
+    //console.log('Generation highest score', neat.getFittest().score);
 
     //networks shouldn't get too big
     for (var genome in neat.population) {
