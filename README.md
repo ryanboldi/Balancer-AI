@@ -6,7 +6,7 @@ Training an AI to bounce a ball to a given goal. The AI would need to rotate and
 <img src='game.png' alt="Game plan" width="800px">
 </p>
 
-## How the creature can gain fitness :grin: or lose fitness :sweat:
+## How the creature can gain :) or lose :( fitness
 <p align="center">
 <img src='Plan.png' alt="How the player can die" width="850px">
 </p>
