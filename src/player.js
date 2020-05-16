@@ -20,8 +20,6 @@ class Player {
         noStroke();
         rect(0, 0, this.width, this.height);
         pop();
-
-
     }
 
     think(env) {
@@ -69,8 +67,10 @@ class Player {
             let input6 = map(I6, 0, Math.PI, -1, 1);
 
             //ADD 7th INPUT, which is which wall is the winning wall.
+            let input7 = (env.left ? -1 : 1);//-1 if left wall is wining, 1 if right wall is winning
 
-            let inputs = [input1, input2, input3, input4, input5, input6];
+
+            let inputs = [input1, input2, input3, input4, input5, input6, input7];
             let outputs = this.brain.activate(inputs);
 
             if (outputs[0] > 0.5) {

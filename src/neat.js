@@ -19,7 +19,7 @@ var neat;
 /*construct GA*/
 function initNeat() {
     neat = new Neat(
-        6, 4,
+        7, 4,
         null,
         {
             mutation: [
@@ -40,7 +40,7 @@ function initNeat() {
             popsize: popsize,
             mutationRate: MUTATION_RATE,
             elitism: ELITISM,
-            network: new Architect.Random(6, START_HIDDEN_SIZE, 4)
+            network: new Architect.Random(7, START_HIDDEN_SIZE, 4)
         }
 
     );
@@ -68,8 +68,8 @@ function startEvaluation() {
 
 
 function endEvaluation() {
-    //console.log('Generation: ', neat.generation, ' - average score: ', neat.getAverage());
-    //console.log('Generation highest score', neat.getFittest().score);
+    console.log('Generation: ', neat.generation, ' - average score: ', neat.getAverage());
+    console.log('Generation highest score', neat.getFittest().score);
 
     //networks shouldn't get too big
     for (var genome in neat.population) {

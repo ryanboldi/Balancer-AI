@@ -14,7 +14,7 @@ let Engine = Matter.Engine,
     World = Matter.World,
     Body = Matter.Body,
     Bodies = Matter.Bodies,
-    Detector = Matter.Detector;
+    Events = Matter.Events;
 
 let envs = [];
 

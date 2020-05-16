@@ -13,9 +13,9 @@ class Environment {
         this.player = new Player(this.x + (this.w / 1.2), this.y + (this.h * 0.75), this.w * PlayerWidth, this.h / 20, this.engine, genome);
 
         //WHICH WALL TO BE THE WINNING ONE
-        let left = (random(0, 1) < 0.5);
-        this.winningWall = (left ? this.x + (winWallWidth / 2) : this.x + (this.w - (winWallWidth / 2)));
-        this.losingWall = (left ? this.x + (this.w - (winWallWidth / 2)) : this.x + (winWallWidth / 2));
+        this.left = (random(0, 1) < 0.5);
+        this.winningWall = (this.left ? this.x + (winWallWidth / 2) : this.x + (this.w - (winWallWidth / 2)));
+        this.losingWall = (this.left ? this.x + (this.w - (winWallWidth / 2)) : this.x + (winWallWidth / 2));
 
         //add the walls to the world. 
         this.winWall = Bodies.rectangle(this.winningWall, this.y + (this.h / 2), winWallWidth, this.h, wallSettings);
@@ -24,6 +24,13 @@ class Environment {
         World.add(this.engine.world, [this.winWall, this.loseWall]);
 
         Engine.run(this.engine);
+
+        this.fitness = 0;
+    }
+
+    fitness() {
+        this.fitness = this.player.fitness;
+        return this.fitness;
     }
 
     draw() {
@@ -50,6 +57,7 @@ class Environment {
         }
 
         this.player.draw();
+        this.fitness = this.player.fitness;
     }
 
     update() {
@@ -57,17 +65,21 @@ class Environment {
     }
 
     checkDeath() {
-        if (this.player.body.bounds.min.x < this.x) { this.player.alive = false }
-        if (this.player.body.bounds.max.x > this.x + this.w) { this.player.alive = false }
+        if (this.player.body.bounds.min.x < (this.x + winWallWidth)) { this.player.alive = false }
+        if (this.player.body.bounds.max.x > (this.x + this.w - winWallWidth)) { this.player.alive = false }
         if (this.ball.body.position.y > this.y + this.h) { this.player.alive = false }
+
+        Events.on(this.ball, "sleepStart", function () { this.player.alive = false })
 
         //if ball is in contact with the winning side.
         if (this.player.alive) {
-            if (this.ball.body.position.x) {
-                //score
+            if (Matter.SAT.collides(this.ball.body, this.winWall).collided) {
+                this.player.fitness += 10;
+            }
+
+            if (Matter.SAT.collides(this.ball.body, this.loseWall).collided) {
+                this.player.alive = false;
             }
         }
-
-
     }
 }
