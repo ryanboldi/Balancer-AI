@@ -12,12 +12,18 @@ class Environment {
         this.ball = new Ball(this.x + (this.w / 2), this.y + (this.h * 0.1), this.w / 32, this.engine);
         this.player = new Player(this.x + (this.w / 1.2), this.y + (this.h * 0.75), this.w * PlayerWidth, this.h / 20, this.engine, genome);
 
-        Engine.run(this.engine);
-
         //WHICH WALL TO BE THE WINNING ONE
         let left = (random(0, 1) < 0.5);
         this.winningWall = (left ? this.x + (winWallWidth / 2) : this.x + (this.w - (winWallWidth / 2)));
         this.losingWall = (left ? this.x + (this.w - (winWallWidth / 2)) : this.x + (winWallWidth / 2));
+
+        //add the walls to the world. 
+        this.winWall = Bodies.rectangle(this.winningWall, this.y + (this.h / 2), winWallWidth, this.h, wallSettings);
+        this.loseWall = Bodies.rectangle(this.losingWall, this.y + (this.h / 2), winWallWidth, this.h, wallSettings);
+
+        World.add(this.engine.world, [this.winWall, this.loseWall]);
+
+        Engine.run(this.engine);
     }
 
     draw() {
@@ -42,7 +48,7 @@ class Environment {
             rect(this.x + (this.w / 2), this.y + (this.h / 2), this.w, this.h);
             this.ball.draw();
         }
-        
+
         this.player.draw();
     }
 
@@ -54,5 +60,14 @@ class Environment {
         if (this.player.body.bounds.min.x < this.x) { this.player.alive = false }
         if (this.player.body.bounds.max.x > this.x + this.w) { this.player.alive = false }
         if (this.ball.body.position.y > this.y + this.h) { this.player.alive = false }
+
+        //if ball is in contact with the winning side.
+        if (this.player.alive) {
+            if (this.ball.body.position.x) {
+                //score
+            }
+        }
+
+
     }
 }

@@ -13,7 +13,8 @@ let Engine = Matter.Engine,
     Render = Matter.Render,
     World = Matter.World,
     Body = Matter.Body,
-    Bodies = Matter.Bodies;
+    Bodies = Matter.Bodies,
+    Detector = Matter.Detector;
 
 let envs = [];
 
@@ -54,6 +55,15 @@ let ballSettings = {
 }
 
 let playerSettings = {
+    isStatic: true,
+    restitution: 1,
+    friction: 0,
+    frictionAir: 0,
+    frictionStatic: 0,
+    slop: 0
+}
+
+let wallSettings = {
     isStatic: true,
     restitution: 1,
     friction: 0,
