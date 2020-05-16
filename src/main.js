@@ -6,7 +6,7 @@ const PlayerWidth = 0.3; //out of 1, how much of width of the env is taken up by
 
 const winWallWidth = 4;
 
-const popsize = 64; //root of this needs to be something that WIDTH or HEIGHT is divisble by
+const popsize = 100; //root of this needs to be something that WIDTH or HEIGHT is divisble by
 
 //bunch of module aliases
 let Engine = Matter.Engine,
@@ -46,21 +46,21 @@ function draw() {
 }
 
 let ballSettings = {
-    denisty: 0.1,
+    denisty: 1,
     restitution: 1,
-    friction: 0.1,
-    frictionAir: 0.1,
-    frictionStatic: 0.1,
-    slop: 0.1
+    friction: 0,
+    frictionAir: 0,
+    frictionStatic: 0,
+    slop: 0
 }
 
 let playerSettings = {
     isStatic: true,
     restitution: 1,
-    friction: 0.1,
-    frictionAir: 0.1,
-    frictionStatic: 0.1,
-    slop: 0.1
+    friction: 0,
+    frictionAir: 0,
+    frictionStatic: 0,
+    slop: 0
 }
 
 let wallSettings = {
