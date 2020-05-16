@@ -71,6 +71,9 @@ function endEvaluation() {
     console.log('Generation: ', neat.generation, ' - average score: ', neat.getAverage());
     console.log('Generation highest score', neat.getFittest().score);
 
+    // console.log('Generation: ', neat.generation);
+    // console.log('Generation highest score', neat.getFittest().score);
+
     //networks shouldn't get too big
     for (var genome in neat.population) {
         genome = neat.population[genome];

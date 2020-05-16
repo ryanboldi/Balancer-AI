@@ -29,7 +29,7 @@ class Environment {
     }
 
     fitness() {
-        this.fitness = this.player.fitness;
+        this.fitness = this.player.brain.score;
         return this.fitness;
     }
 
@@ -57,7 +57,7 @@ class Environment {
         }
 
         this.player.draw();
-        this.fitness = this.player.fitness;
+        this.fitness = this.player.brain.score;
     }
 
     update() {
@@ -69,12 +69,15 @@ class Environment {
         if (this.player.body.bounds.max.x > (this.x + this.w - winWallWidth)) { this.player.alive = false }
         if (this.ball.body.position.y > this.y + this.h) { this.player.alive = false }
 
-        Events.on(this.ball, "sleepStart", function () { this.player.alive = false })
+        // Events.on(this.ball.body, "sleepStart", function () { this.player.alive = false })
+        if (this.ball.body.velocity.y == 0) {
+            this.player.alive = false;
+        }
 
         //if ball is in contact with the winning side.
         if (this.player.alive) {
             if (Matter.SAT.collides(this.ball.body, this.winWall).collided) {
-                this.player.fitness += 10;
+                this.player.brain.score += 10;
             }
 
             if (Matter.SAT.collides(this.ball.body, this.loseWall).collided) {

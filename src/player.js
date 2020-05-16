@@ -9,7 +9,12 @@ class Player {
 
         this.alive = true;
         this.brain = genome;
+        this.brain.score = 0;
         this.fitness = 0;
+    }
+
+    fitness(){
+        this.fitness = this.brain.score;
     }
 
     draw() {

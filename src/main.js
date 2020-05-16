@@ -48,19 +48,19 @@ function draw() {
 let ballSettings = {
     denisty: 0.1,
     restitution: 1,
-    friction: 0,
-    frictionAir: 0,
-    frictionStatic: 0,
-    slop: 0
+    friction: 0.1,
+    frictionAir: 0.1,
+    frictionStatic: 0.1,
+    slop: 0.1
 }
 
 let playerSettings = {
     isStatic: true,
     restitution: 1,
-    friction: 0,
-    frictionAir: 0,
-    frictionStatic: 0,
-    slop: 0
+    friction: 0.1,
+    frictionAir: 0.1,
+    frictionStatic: 0.1,
+    slop: 0.1
 }
 
 let wallSettings = {
