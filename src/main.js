@@ -1,7 +1,7 @@
 const WIDTH = 800;//SQUARE
 const HEIGHT = 800;
 
-const PlayerSpeed = 5;
+const PlayerSpeed = 10;
 const PlayerWidth = 0.3; //out of 1, how much of width of the env is taken up by the player 
 
 const winWallWidth = 30;
