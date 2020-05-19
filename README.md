@@ -10,3 +10,9 @@ Training an AI to bounce a ball to a given goal. The AI would need to rotate and
 <p align="center">
 <img src='Plan.png' alt="How the player can die" width="850px">
 </p>
+
+### Results
+This is the result after a few generations of training. Some of them have inverted brains and score on the RED side, but most of them learn bounce the ball over the green wall, scoring repeatedly:
+<p align="center">
+<img src='WinningDecent.gif' alt="Game plan" width="800px">
+</p>
