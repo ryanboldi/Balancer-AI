@@ -55,13 +55,12 @@ class Environment {
             rect(this.x + (this.w / 2), this.y + (this.h / 2), this.w, this.h);
             this.ball.draw();
         }
-
         this.player.draw();
-        this.fitness = this.player.brain.score;
     }
 
     update() {
         this.player.think(this);
+        this.fitness = this.player.brain.score;
     }
 
     checkDeath() {

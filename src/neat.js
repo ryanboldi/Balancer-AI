@@ -48,18 +48,18 @@ function initNeat() {
 
 function startEvaluation() {
     envs = [];  //resets ball array.
-    let x = 0;
-    let y = 0;
-    let perRow = Math.sqrt(popsize);
-    let spacing = (WIDTH / perRow);
+    //let x = 0;
+    //let y = 0;
+    //let perRow = Math.sqrt(popsize);
+    //let spacing = (WIDTH / perRow);
     for (let genome in neat.population) {
         genome = neat.population[genome];
-        envs.push(new Environment(x, y, spacing, spacing, genome));
-        x += spacing;
-        if (x == WIDTH) {
-            x = 0;
-            y += spacing;
-        }
+        envs.push(new Environment(0, 0, width, width, genome));
+        //x += spacing;
+        //if (x == WIDTH) {
+        // x = 0;
+        // y += spacing;
+        // }
     }
 
     //console.log(envs); 
@@ -70,6 +70,9 @@ function startEvaluation() {
 function endEvaluation() {
     console.log('Generation: ', neat.generation, ' - average score: ', neat.getAverage());
     console.log('Generation highest score', neat.getFittest().score);
+
+    genBest.push(neat.getFittest());
+    console.log(neat.getFittest());
 
     //CLEANUP
     envs.forEach(env => {

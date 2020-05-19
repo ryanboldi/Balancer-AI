@@ -18,6 +18,7 @@ let Engine = Matter.Engine,
 
 let envs = [];
 
+let genBest = [];// array of every generation's best creature.
 
 function setup() {
     frameRate(35);
@@ -32,9 +33,17 @@ function setup() {
 
 function draw() {
     background(190);
+
+    for(let i = 0; i< 1; i++){
+        timeStep();
+    }
+}
+
+function timeStep(){
+    envs[0].draw();
     for (let i = 0; i < envs.length; i++) {
         envs[i].update();
-        envs[i].draw();
+        //envs[i].draw();
         envs[i].checkDeath();
     }
 
