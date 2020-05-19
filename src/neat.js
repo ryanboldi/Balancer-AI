@@ -109,4 +109,6 @@ function endEvaluation() {
 
     neat.generation++;
     startEvaluation();
+
+    startDrawing(genBest[neat.generation - 1]);
 }

@@ -4,9 +4,11 @@ const HEIGHT = 800;
 const PlayerSpeed = 5;
 const PlayerWidth = 0.3; //out of 1, how much of width of the env is taken up by the player 
 
-const winWallWidth = 4;
+const winWallWidth = 30;
 
-const popsize = 100; //root of this needs to be something that WIDTH or HEIGHT is divisble by
+const popsize = 30; //root of this needs to be something that WIDTH or HEIGHT is divisble by
+
+let drawing;
 
 //bunch of module aliases
 let Engine = Matter.Engine,
@@ -34,13 +36,25 @@ function setup() {
 function draw() {
     background(190);
 
-    for(let i = 0; i< 1; i++){
+    for (let i = 0; i < 1; i++) {
         timeStep();
     }
 }
 
-function timeStep(){
-    envs[0].draw();
+function timeStep() {
+
+    //we want to draw the last generation's best
+    if (neat.generation == 0) {
+        console.log("no previous best");
+        drawing = NaN;
+    } else {
+        drawing.draw();
+        drawing.update();
+        drawing.checkDeath();
+    }
+
+
+
     for (let i = 0; i < envs.length; i++) {
         envs[i].update();
         //envs[i].draw();
@@ -79,4 +93,8 @@ let wallSettings = {
     frictionAir: 0,
     frictionStatic: 0,
     slop: 0
+}
+
+function startDrawing(genome) {
+    drawing = new Environment(0, 0, WIDTH, HEIGHT, genome);
 }
