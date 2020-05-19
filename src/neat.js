@@ -71,6 +71,11 @@ function endEvaluation() {
     console.log('Generation: ', neat.generation, ' - average score: ', neat.getAverage());
     console.log('Generation highest score', neat.getFittest().score);
 
+    //CLEANUP
+    envs.forEach(env => {
+        env.engine.events = {};
+    });
+
     // console.log('Generation: ', neat.generation);
     // console.log('Generation highest score', neat.getFittest().score);
 
