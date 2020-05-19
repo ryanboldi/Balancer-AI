@@ -74,6 +74,8 @@ function endEvaluation() {
     //CLEANUP
     envs.forEach(env => {
         env.engine.events = {};
+        World.clear(env.engine.world);
+        Engine.clear(env.engine);
     });
 
     // console.log('Generation: ', neat.generation);
