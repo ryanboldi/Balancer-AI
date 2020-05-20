@@ -17,8 +17,15 @@ This is the result after a few generations of training. Some of them have invert
 <img src='WinningDecent.gif' alt="Game plan" width="800px">
 </p>
 
-##### Here's another example of some interesting behaviour:
+#### Here's another example of some interesting behaviour:
 This one stays in place until the ball comes in short so it moves to the left to catch it.
 <p align="center">
 <img src='Generation36.gif' alt="Game plan" width="800px">
 </p>
+
+#### I made the paddle much shorter, to see what happens:
+They developed the behaviour to catch their own rebound off the wall between generation 14-15. They then learned how to hit it up into the air and then score with a somewhat obscure strategy (generation 19).
+<p align="center">
+<img src='SmallPaddle.gif' alt="Game plan" width="800px">
+</p>
+

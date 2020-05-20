@@ -2,11 +2,11 @@ const WIDTH = 800;//SQUARE
 const HEIGHT = 800;
 
 const PlayerSpeed = 10;
-const PlayerWidth = 0.3; //out of 1, how much of width of the env is taken up by the player 
+const PlayerWidth = 0.1; //out of 1, how much of width of the env is taken up by the player 
 
 const winWallWidth = 30;
 
-const popsize = 30; //root of this needs to be something that WIDTH or HEIGHT is divisble by
+const popsize = 10; //root of this needs to be something that WIDTH or HEIGHT is divisble by
 
 let drawing;
 
