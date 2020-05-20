@@ -12,7 +12,13 @@ Training an AI to bounce a ball to a given goal. The AI would need to rotate and
 </p>
 
 ### Results
-This is the result after a few generations of training. Some of them have inverted brains and score on the RED side, but most of them learn bounce the ball over the green wall, scoring repeatedly:
+This is the result after a few generations of training. Some of them have inverted brains and score on the RED side, but most of them learn to bounce the ball on the green wall, scoring repeatedly:
 <p align="center">
 <img src='WinningDecent.gif' alt="Game plan" width="800px">
+</p>
+
+##### Here's another example of some interesting behaviour:
+This one stays in place until the ball comes in short so it moves to the left to catch it.
+<p align="center">
+<img src='Generation36.gif' alt="Game plan" width="800px">
 </p>

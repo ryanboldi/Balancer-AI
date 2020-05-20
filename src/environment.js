@@ -10,7 +10,7 @@ class Environment {
 
         this.ball = new Ball(this.x + (this.w / 2), this.y + (this.h * 0.1), this.w / 32, this.engine);
         //this.player = new Player(this.x + random(winWallWidth, (this.w - winWallWidth - (this.w * PlayerWidth))), this.y + (this.h * 0.75), this.w * PlayerWidth, this.h / 20, this.engine, genome);
-        this.player = new Player(this.x + this.w/1.4, this.y + (this.h * 0.75), this.w * PlayerWidth, this.h / 20, this.engine, genome);
+        this.player = new Player(this.x + this.w / 1.4, this.y + (this.h * 0.75), this.w * PlayerWidth, this.h / 20, this.engine, genome);
 
         //WHICH WALL TO BE THE WINNING ONE
         //this.left = (random(0, 1) < 0.5);
@@ -27,6 +27,7 @@ class Environment {
         Engine.run(this.engine);
 
         this.fitness = 0;
+        this.lastActive = 0;
     }
 
     fitness() {
@@ -60,6 +61,7 @@ class Environment {
     }
 
     update() {
+        this.lastActive += 1;
         this.player.think(this);
         this.fitness = this.player.brain.score;
     }
@@ -69,20 +71,21 @@ class Environment {
         if (this.player.body.bounds.max.x > (this.x + this.w - winWallWidth)) { this.player.alive = false }
         if (this.ball.body.position.y > this.y + this.h) { this.player.alive = false }
 
-        // Events.on(this.ball.body, "sleepStart", function () { this.player.alive = false })
-        //if (this.ball.body.velocity.y == 0) {
-        //  this.player.alive = false;
-        //}
 
         //if ball is in contact with the winning side.
         if (this.player.alive) {
             if (Matter.SAT.collides(this.ball.body, this.winWall).collided) {
                 this.player.brain.score += 10;
+                this.lastActive = 0;
             }
 
             if (Matter.SAT.collides(this.ball.body, this.loseWall).collided) {
                 this.player.alive = false;
             }
+        }
+        if (this.lastActive > activeTimeSteps) {
+            this.player.alive = false;
+            console.log("creature timed out");
         }
     }
 }

@@ -10,6 +10,8 @@ const popsize = 30; //root of this needs to be something that WIDTH or HEIGHT is
 
 let drawing;
 
+let activeTimeSteps = 500; // if inactive for this many time steps, youre dead.
+
 //bunch of module aliases
 let Engine = Matter.Engine,
     Render = Matter.Render,
@@ -48,6 +50,11 @@ function timeStep() {
         console.log("no previous best");
         drawing = NaN;
     } else {
+        textSize(30);
+        fill(50);
+        strokeWeight(2);
+        stroke(0);
+        text(`Showing: Best creature of generation ${neat.generation - 1}`, 50, 50);
         drawing.draw();
         drawing.update();
         drawing.checkDeath();
