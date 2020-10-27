@@ -12,7 +12,7 @@ Training an AI to bounce a ball to a given goal. The AI would need to rotate and
 </p>
 
 ### Results
-This is the result after a few generations of training. Some of them have inverted brains and score on the RED side, but most of them learn to bounce the ball on the green wall, scoring repeatedly:
+After a few generations of evolution, the majority of creatures seem to be acting similarly to a human would. Some of the creatures have their brains inverted as a mutation, and score on the RED side. Fortunatley, the rest of them learn to bounce the ball on the green wall, scoring repeatedly. The follow gif shows this happening:
 <p align="center">
 <img src='WinningDecent.gif' alt="Game plan" width="800px">
 </p>
